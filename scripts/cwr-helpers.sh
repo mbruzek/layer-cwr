@@ -206,7 +206,7 @@ function release_charm() {
   local channel=$1
   shift
 
-  # The series is optional, check the third parameter for empty string.
+  # The series is optional, check the third parameter for non empty string.
   if [[ -n "${series}" ]]; then
     local charm_id="cs:~${lp_id}/${series}/${charm_name}"
   else
@@ -214,7 +214,7 @@ function release_charm() {
   fi
 
   local channel_flag=""
-  # The channel is also optional, check the fourth parameter for empty string.
+  # The channel is optional, check the fifth parameter for non empty string.
   if [[ -n "${channel}" ]]; then
     channel_flag="--channel=${channel}"
   fi
